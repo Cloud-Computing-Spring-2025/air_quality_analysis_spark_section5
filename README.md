@@ -252,6 +252,58 @@ Fix: Explicitly casted columns where needed and validated schema using df.printS
 
 ![image](https://github.com/user-attachments/assets/6ec228c5-146c-4798-ba68-38c5730e4483)
 
+# Section-4: Predictive Modeling with Spark MLlib
+
+## Objective
+
+# Build a machine learning model to predict PM2.5 air pollution levels using:
+
+- Historical air quality data 
+- Feature engineering (lag values, temperature, humidity, etc.)
+- Vector assembly and feature scaling
+- Model training and evaluation using Regression algorithms
+- Model export for later use
+
+# Install Python libraries
+```bash
+pip install -r requirements.txt
+```
+
+# Install Java (Spark dependency)
+```bash
+sudo apt update
+```
+```bash
+sudo apt install default-jdk -y
+```
+
+# Verify Java installation
+```bash
+java -version
+```
+```bash
+readlink -f $(which java)
+```
+
+# Set environment variables
+```bash
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+```
+```bash
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+# Commands to Run
+
+```bash
+python3 dashboardVisualization.py
+```
+# output
+
+![image](https://github.com/user-attachments/assets/61bf647d-49e7-4d1c-a9e4-a81340d0cf70)
+
+
+
 
 
 
