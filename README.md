@@ -252,17 +252,15 @@ Fix: Explicitly casted columns where needed and validated schema using df.printS
 
 ![image](https://github.com/user-attachments/assets/6ec228c5-146c-4798-ba68-38c5730e4483)
 
-# Section-4: Predictive Modeling with Spark MLlib
+# Section-5: Real-Time Pipeline Integration & Dashboard Visualization
 
 ## Objective
 
-# Build a machine learning model to predict PM2.5 air pollution levels using:
+## Integrate all components into a real-time Spark pipeline and visualize insights using an interactive dashboard. This section includes:
 
-- Historical air quality data 
-- Feature engineering (lag values, temperature, humidity, etc.)
-- Vector assembly and feature scaling
-- Model training and evaluation using Regression algorithms
-- Model export for later use
+- Running the full data ingestion-to-prediction pipeline
+- Generating real-time alerts based on PM2.5 thresholds
+- Serving live results via a Streamlit dashboard
 
 # Install Python libraries
 ```bash
