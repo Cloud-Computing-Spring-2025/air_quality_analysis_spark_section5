@@ -262,12 +262,12 @@ Fix: Explicitly casted columns where needed and validated schema using df.printS
 - Generating real-time alerts based on PM2.5 thresholds
 - Serving live results via a Streamlit dashboard
 
-# Install Python libraries
+## Install Python libraries
 ```bash
 pip install -r requirements.txt
 ```
 
-# Install Java (Spark dependency)
+## Install Java (Spark dependency)
 ```bash
 sudo apt update
 ```
@@ -275,7 +275,7 @@ sudo apt update
 sudo apt install default-jdk -y
 ```
 
-# Verify Java installation
+## Verify Java installation
 ```bash
 java -version
 ```
@@ -283,7 +283,7 @@ java -version
 readlink -f $(which java)
 ```
 
-# Set environment variables
+## Set environment variables
 ```bash
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ```
@@ -291,12 +291,12 @@ export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
 ```
 
-# Commands to Run
+## Commands to Run
 
 ```bash
 python3 dashboardVisualization.py
 ```
-# output
+## output
 
 ![image](https://github.com/user-attachments/assets/61bf647d-49e7-4d1c-a9e4-a81340d0cf70)
 
