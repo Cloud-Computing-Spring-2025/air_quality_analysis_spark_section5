@@ -252,6 +252,141 @@ Fix: Explicitly casted columns where needed and validated schema using df.printS
 
 ![image](https://github.com/user-attachments/assets/6ec228c5-146c-4798-ba68-38c5730e4483)
 
+# Section 4: Air Quality Forecasting using Spark MLlib
+
+This module trains and evaluates a machine learning model to forecast PM2.5 air quality levels based on historical weather and pollution data. It is a part of the full pipeline for the **Air Quality Monitoring & Forecasting Project**.
+
+---
+
+## 📌 Objectives
+
+- Select relevant features for air quality forecasting
+- Train a **Linear Regression** model using **Spark MLlib**
+- Evaluate model performance (RMSE and R²)
+- Tune hyperparameters using **CrossValidator**
+- Save the trained model and predictions for dashboard use
+
+---
+
+## 📁 Files
+
+| File | Description |
+|------|-------------|
+| `section-4.py` | Main script for training and evaluating the ML model |
+| `Output/section4_model/` | Directory to store the trained model |
+| `Output/section4_predictions/` | Directory containing actual vs. predicted PM2.5 values (CSV format) |
+
+---
+
+## 📁 Directory Structure
+
+![image](https://github.com/user-attachments/assets/55ced152-7e24-4e7d-a7d3-1890daaebf40)
+
+
+## ⚙️ Features Used for Training
+
+- `temperature`
+- `humidity`
+- `lag1_pm25`
+- `rolling_avg_pm25`
+- `rate_of_change_pm25`
+
+> These features are assembled into a feature vector using `VectorAssembler`.
+
+---
+
+## 📈 Model Output
+
+- **Initial RMSE** and **R²** on test data
+- **Best RMSE** and **Best R²** after hyperparameter tuning
+- Saved model available at: `Output/section4_model/air_quality_lr_model/`
+- Prediction results available at: `Output/section4_predictions/` (includes actual vs. predicted PM2.5)
+
+---
+
+## 🧼 Data Handling
+
+- Loaded from: `Output/output_section3_csv/*.csv`
+- Null values in features are handled via mean imputation using `Imputer`
+- Target label for prediction: `avg_pm25`
+
+---
+
+## 🔁 Real-Time Integration Plan
+
+Model is designed to be used in streaming pipelines:
+
+1. Stream incoming data from TCP or Kafka
+2. Preprocess using same feature pipeline
+3. Load this trained model
+4. Predict PM2.5 in real-time
+5. Display in dashboard or trigger alerts
+
+---
+## Prerequisites
+
+- Install required Python libraries:
+```bash
+pip install -r requirements.txt
+```
+
+- Install Java (for Spark):
+```bash
+sudo apt update
+sudo apt install default-jdk -y
+```
+
+- Verify Java installation:
+```bash
+java -version
+readlink -f $(which java)
+```
+
+- Set environment variables:
+```bash
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+---
+
+## ✅ How to Run
+
+```bash
+python section-4.py
+```
+Make sure the dataset from Section 3 is available in:
+
+```bash
+Output/output_section3_csv/
+```
+And required Python packages are installed:
+```bash
+pip install pyspark findspark
+```
+---
+## 📊 Evaluation Metrics
+## Metric	Description
+1.RMSE (Root Mean Squared Error)	Measures the average magnitude of the error. Lower is better.
+
+
+2.R² (R-squared / Coefficient of Determination)	Indicates how well the model explains the variance in the target variable. Ranges from 0 to 1. Higher is better.
+
+Real-time dashboards (e.g., with Plotly, Matplotlib, or Grafana)
+---
+🧪 Output (Console)
+```
+Initial RMSE: 4.87
+Initial R²: 0.83
+[Tuned] Best RMSE: 4.52
+[Tuned] Best R²: 0.86
+```
+## Output Images
+
+![image](https://github.com/user-attachments/assets/7749b44c-4cc5-4a55-95df-794fa573d0f0)
+
+
+=======
 # Section-5: Real-Time Pipeline Integration & Dashboard Visualization
 
 ## Objective
